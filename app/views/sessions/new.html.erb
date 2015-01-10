@@ -1,0 +1,16 @@
+<h1>Sign In!</h1>
+
+<form action= '<%= session_url %>' id = 'sign_in' method = 'Post'>
+  <%= render "shared/token" %>
+
+  <label for= 'username'>Username:</label>
+  <input type= 'text' name= "user[username]" id = 'username'>
+  <br>
+
+  <label for= 'password'>Password:</label>
+  <input type= 'text' name= "user[password]" id = 'password'>
+  <br>
+
+  <input type= 'submit'>
+
+</form>

@@ -1,0 +1,15 @@
+<h1><%= @post.title %></h1>
+
+<%= @post.inspect %>
+
+<%= render 'comments/comments_form' %>
+
+<% @post.comments.where(parent_comment_id: nil).each do |comment| %>
+  <br>
+  <%= comment.author.username %>
+  <br>
+  <%=link_to "Look at this comments show page", comment_url(comment)%>
+  <textarea><%= comment.content %></textarea>
+  <br>
+  <br>
+<% end %>

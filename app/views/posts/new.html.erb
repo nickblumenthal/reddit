@@ -1,0 +1,26 @@
+<h1>New Post</h1>
+
+<form method= "post" action= "<%= posts_url %>">
+  <%=render "shared/token" %>
+
+  <label for= "title">Post Title</label>
+  <input type = "text" name= "post[title]" id = 'title'>
+  <br><br>
+
+  <label for= "url">Post Url</label>
+  <input type = "text" name = "post[url]" id = 'url'>
+  <br><br>
+
+  <label for= "content">Content</label>
+  <textarea name = "post[content]" id = 'content' ></textarea>
+  <br><br>
+
+  <% @subs.each do |sub| %>
+    <label for= <%= "checkbox#{sub.id}" %> ><%= sub.title %></label>
+    <input type="checkbox" name="post[sub_ids][]" value = "<%= sub.id %>" id="<%= "checkbox#{sub.id}" %>">
+    <br>
+  <%end%>
+  <br>
+  <input type= "submit" >
+
+</form>

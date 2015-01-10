@@ -1,0 +1,23 @@
+<h1>Comment</h1>
+
+<%= @comment.author.username %>
+<br>
+<%= @comment.content %>
+<br>
+<br>
+<form action='<%= comments_url %>' method = 'post'>
+  <%= render 'shared/token' %>
+  <textarea name='comment[content]' rows='4' cols='50'></textarea>
+  <input type='hidden' name='comment[post_id]' value='<%= @comment.post_id %>'>
+  <input type='hidden' name='comment[parent_comment_id]' value= '<%=@comment.id%>'>
+  <input type='submit'>
+
+</form>
+<br>
+<br>
+<% @comment.child_comments.each do |comment| %>
+  <br>
+  <%= comment.author.username %>
+  <br>
+  <%= comment.content %>
+<% end %>

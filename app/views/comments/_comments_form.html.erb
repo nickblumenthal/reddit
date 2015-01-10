@@ -1,0 +1,9 @@
+<h1>New Comment</h1>
+
+<form action='<%= comments_url %>' method = 'post'>
+  <%= render 'shared/token' %>
+  <textarea name='comment[content]' rows='4' cols='50'></textarea>
+  <input type='hidden' name='comment[post_id]' value='<%= @post.id %>' >
+  <input type='submit'>
+
+</form>

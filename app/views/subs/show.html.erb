@@ -1,0 +1,10 @@
+<h1><%= @sub.title %></h1>
+<textarea name="sub[description]"
+id="description"
+rows='4'
+cols='50'><%= @sub.description%>
+</textarea>
+
+<% @posts.each do |post| %>
+  <%= render 'posts/post', post: post %>
+<% end %>
